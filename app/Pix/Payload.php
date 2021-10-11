@@ -117,6 +117,16 @@ class Payload
     }
     
     /**
+     * Método responsável por definir o valor de $amount
+     *
+     * @param string $amount
+     */
+    public function setAmount($amount) {
+        $this->amount = (string)number_format($amount, 2, '.', '');
+        return $this;
+    }
+    
+    /**
      * Método responsável por retornar o valor completo de um objeto de payload
      *
      * @param $id $id
@@ -175,16 +185,6 @@ class Payload
 
         /* retorna o PAYLOAD + CRC16 */
         return $payload.$this->getCRC16($payload);
-    }
-    
-    /**
-     * Método responsável por definir o valor de $amount
-     *
-     * @param string $amount
-     */
-    public function setAmount($amount) {
-        $this->amount = (string)number_format($amount, 2, '.', '');
-        return $this;
     }
     
     /**
